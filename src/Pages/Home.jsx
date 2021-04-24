@@ -54,7 +54,7 @@ function Home() {
                 toggleActions: 'restart complete reverse reset'
             }
         })
-    }, [])
+    }, [t1])
 
     return (
         <>
@@ -80,7 +80,9 @@ function Home() {
                             <div className="col-span-1 bottom-0">
                                 <img
                                     ref={el => { carImage = el }}
-                                    src={carBa} alt="carbanner image" className="flex-self" />
+                                    src={carBa} alt="carbanner image" className="flex-self" 
+                                    alt="iima"
+                                    />
                             </div>
                         </div>
                         <div
