@@ -21,10 +21,10 @@ function Contact() {
                         <PhoneEnabledIcon /> <p>0777341553</p>
                     </p>
                     <p className="flex flex-row items-center mb-4 text-gray-700">
-                        <EmailIcon /> <p>diepestdie460@gmail.com</p>
+                        <EmailIcon /> <p>trewmane@gmail.com</p>
                     </p>
                     <p className="flex flex-row items-center mb-4 text-gray-700">
-                        <LocationOnIcon /> <p>Cnr First & Silundika, 2nd floor Silundika house </p>
+                        <LocationOnIcon /> <p>Cnr Harare and Robert Mubage </p>
                     </p>
                 </div>
                 <div className="w-full p-2">
