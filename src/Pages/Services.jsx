@@ -13,23 +13,23 @@ function Services() {
                 <div className="top min-h-screen pt-24">
                     <p className="text-center text-xl text-white mb-2 font-semibold">Our services</p>
                     <p className="text-center text-gray-400 mb-8">Our service categories</p>
-                    <div className="servicecategorues grid grid-cols-3 gap-8 px-36 items-center">
+                    <div className="servicecategorues grid md:grid-cols-3 grid-cols-1 gap-8 px-36 items-center">
                         <ServiceItem
-                            className="bg-none hover:bg-gray-800 h-60"
+                            className="bg-none col-span-1 hover:bg-gray-800 h-60"
                             image={coop}
                             category="Cooperate branding"
                             categoryDesc="For companies"
                             navig="/cooperate"
                         />
                         <ServiceItem
-                            className="bg-gray-800 hover:bg-none h-80"
+                            className="bg-gray-800 col-span-1 hover:bg-none h-80"
                             image={perso}
                             category="Pesronal branding"
                             categoryDesc="For pesronal vehicles"
                             navig="/personal"
                         />
                         <ServiceItem
-                            className="bg-none h-60"
+                            className="bg-none col-span-1 h-60"
                             image={perso}
                             category="Pesronal branding"s
                             categoryDesc="For pesronal vehicles"
