@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react'
 import Navbar from '../Components/Navbar'
-import banner from '../assets/img/cars.jpg'
-import carBa from '../assets/img/carBa.png'
+import banner from '../assets/img/carsBack.png'
+import carBa from '../assets/img/carBaB.png'
 import { gsap, Power3, Bounce, TimelineLite } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import coop from '../assets/img/cooperatebranding/change.jpg'
@@ -10,6 +10,7 @@ import logo from '../assets/img/logo.png'
 import custom1 from '../assets/img/custombranding/custom1.jpg'
 import GeneralLayout from '../Layouts/GeneralLayout'
 import {Link} from 'react-router-dom'
+import whiteLogo from '../assets/img/dwLogo.png'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -66,15 +67,16 @@ function Home() {
                             backgroundImage: `url(${banner})`
                         }}>
                         <div className="absolute top-0 w-full h-full bg-center bg-cover">
-                            <span id="blackOverlay" className="w-full h-full absolute opacity-90 bg-black"></span>
+                            <span id="blackOverlay" className="w-full h-full absolute opacity-25 bg-black"></span>
                         </div>
-                        <div className="main container md:px-16 px-8 relative mx-auto grid md:grid-cols-2 grid-cols-1">
+                        <div className="main container md:px-16 px-8 relative items-center mx-auto grid md:grid-cols-2 grid-cols-1">
                             <div className="text flex flex-col items-center col-span-1 md:mb-0 mb-2">
-                                <p className="companyName md:text-8xl text-5xl text-red-600 mb-2 font-extrabold">DesignWorx</p>
-                                <p className="slogan text-2xl text-center text-white">We specialize in vehicle branding</p>
-                                <div className="demoandbrabdbtn flex mt-16">
+                                {/* <p className="companyName md:text-8xl text-5xl text-red-600 mb-2 font-extrabold">DesignWorx</p> */}
+                                <img src={whiteLogo} alt="logo" className="companyName w-96"/>
+                                <p className="slogan text-2xl text-center uppercase mt-16 text-white">PROFESSIONAL MOTOR GRAPhics</p>
+                                <div className="demoandbrabdbtn flex mt-4">
                                     <Link to='/services' className="bg-red-600 mr-2 hover:bg-red-700 text-white font-semibold cursor-pointer p-2 rounded-sm uppercase">Our Jobs</Link>
-                                    <Link to='/contact' className=" text-red-600 ml-2 border-2 border-red-600 hover:bg-red-600 cursor-pointer hover:text-white font-semibold p-2 rounded-sm uppercase">Place your ORDER</Link>
+                                    <Link to='/contact' className=" text-white ml-2 border-2 border-red-600 hover:bg-red-600 cursor-pointer hover:text-white font-semibold p-2 rounded-sm uppercase">Place your ORDER</Link>
                                 </div>
                             </div>
                             <div className="col-span-1 bottom-0">
