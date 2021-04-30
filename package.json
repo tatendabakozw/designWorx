@@ -12,6 +12,7 @@
     "@testing-library/user-event": "^12.1.10",
     "autoprefixer": "^9",
     "axios": "^0.21.1",
+    "firebase": "^8.4.2",
     "framer-motion": "^4.1.2",
     "gsap": "^3.6.1",
     "postcss": "^7",

@@ -11,6 +11,8 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import Button from '@material-ui/core/Button';
+import cooperate from '../assets/img/cooperatebranding/IMG_3487.jfif'
+import custom from '../assets/img/custombranding/custom1.jpg'
 
 function Dashboard() {
     const [service, setServiceType] = useState('')
@@ -36,7 +38,7 @@ function Dashboard() {
                             <p>$300</p>
                         </div> */}
                     </div>
-                    <Link to='/messages' className="flex cursor-pointer flex-row text-sm rounded items-center text-gray-500 p-4 mb-4 bg-white shadow">
+                    <Link to='/orders' className="flex cursor-pointer flex-row text-sm rounded items-center text-gray-500 p-4 mb-4 bg-white shadow">
                         <MailOutlineIcon fontSize="small" />
                         <p>Orders</p>
                         <div className="flex-1"></div>
@@ -57,6 +59,26 @@ function Dashboard() {
                                 <p>Add service</p>
                             </p>
                         </span>
+                        <div className=" w-full">
+                           <p className="text-gray-600 mt-4">Click on any to edit how these are viewed on services page</p>
+                           <div className="bg-white grid md:grid-cols-3 grid-cols-1 gap-4 hover:shadow-md p-4 my-4 shadow rounded">
+                               <span className="px-4 cursor-pointer items-center flex flex-col">
+                                   <p className="text-gray-700 text-sm">Cooperate</p>
+                                   <div className="border-b-2 border-gray-400 my-2 rounded-sm w-10"></div>
+                                   <img src={cooperate} alt="cooperate"/>
+                               </span>
+                               <span className="px-4 cursor-pointer items-center flex flex-col">
+                                   <p className="text-gray-700 text-sm">Custom</p>
+                                   <div className="border-b-2 border-gray-400 my-2 rounded-sm w-10"></div>
+                                   <img src={custom} alt="cooperate"/>
+                               </span>
+                               <span className="px-4 cursor-pointer items-center flex flex-col">
+                                   <p className="text-gray-700 text-sm">Cooperate</p>
+                                   <div className="border-b-2 border-gray-400 my-2 rounded-sm w-10"></div>
+                                   <img src={cooperate} alt="cooperate"/>
+                               </span>
+                           </div>
+                        </div>
                         <Dialog
                             open={openTDialog}
                             onClose={closeDialog}
@@ -79,8 +101,8 @@ function Dashboard() {
                                             <option value='Cooperate branding'>Cooperate branding</option>
                                             {/* <option value='100k - 500k'>100k - 500k</option> */}
                                         </select>
-                                        <input type="text" placeholder="Customer name" className="border col-span-1 border-gray-600 rounded p-1"/>
-                                        <input type="file" placeholder="Select image" className="border col-span-1 border-gray-600 rounded p-1"/>
+                                        <input type="text" placeholder="Customer name" className="border col-span-1 border-gray-600 rounded p-1" />
+                                        <input type="file" placeholder="Select image" className="border col-span-1 border-gray-600 rounded p-1" />
                                     </div>
                                 </DialogContentText>
                             </DialogContent>

@@ -16,7 +16,6 @@ function Contact() {
             <div className="container flex flex-col w-full md:flex-row my-4 p-8">
                 <div className="w-full flex flex-col justify-around">
                     <p className="text-gray-600 text-center font-semibold">Contact Us</p>
-
                     <p className="flex flex-row items-center mb-4 text-gray-700">
                         <PhoneEnabledIcon /> <p>0777341553</p>
                     </p>

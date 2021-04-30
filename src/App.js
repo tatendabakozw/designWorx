@@ -7,6 +7,9 @@ import Contact from './Pages/Contact';
 import Cooperate from './Pages/Cooperate';
 import Personal from './Pages/Personal';
 import Dashboard from './dashboard/Dashboard';
+import Login from './Pages/Login';
+import Orders from './dashboard/Orders';
+import PrivateRoute from './HOCS/PrivateRoute';
 
 function App() {
   return (
@@ -14,7 +17,9 @@ function App() {
       <Switch>
         <Route path='/about' component={About}/>
         <Route path='/cooperate' component={Cooperate}/>
-        <Route path='/dashboard' component={Dashboard}/>
+        <Route path='/login' component={Login}/>
+        <PrivateRoute path='/dashboard' component={Dashboard}/>
+        <PrivateRoute path='/orders' component={Orders}/>
         <Route path='/personal' component={Personal}/>
         <Route path='/contact' component={Contact}/>
         <Route path='/services' component={Services}/>
