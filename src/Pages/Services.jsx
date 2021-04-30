@@ -1,11 +1,23 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Navbar from '../Components/Navbar'
 import GeneralLayout from '../Layouts/GeneralLayout'
 import coop from '../assets/img/coop1.svg'
 import perso from '../assets/img/perso.svg'
 import { Link } from 'react-router-dom'
+import { db } from '../firebase'
 
 function Services() {
+    const [services, setServices] = useState()
+
+    useEffect(() => {
+        db.collection('services').onSnapshot(snapshot => {
+            setServices(snapshot.docs.map(doc => ({
+                id: doc.id,
+                services: doc.data()
+            })));
+        })
+    }, [])
+
     return (
         <GeneralLayout>
             <Navbar transparent />
@@ -14,14 +26,20 @@ function Services() {
                     <p className="text-center text-xl text-white mb-2 font-semibold">Our services</p>
                     <p className="text-center text-gray-400 mb-8">Our service categories</p>
                     <div className="servicecategorues grid md:grid-cols-3 grid-cols-1 gap-8 md:px-36 px-3 items-center">
-                        <ServiceItem
-                            className="bg-none col-span-1 hover:bg-gray-800 h-60"
-                            image={coop}
-                            category="Cooperate branding"
-                            categoryDesc="For companies"
-                            navig="/cooperate"
-                        />
-                        <ServiceItem
+                        {
+                            services?.map(service => (
+                                <>
+                                    <ServiceItem
+                                        className="bg-none col-span-1 hover:bg-gray-800 h-60"
+                                        image={service.services.brandpic}
+                                        category={service.services.brandtype}
+                                        categoryDesc={service.services.branddescription}
+                                        navig="/cooperate"
+                                    />
+                                </>
+                            ))
+                        }
+                        {/* <ServiceItem
                             className="bg-gray-800 col-span-1 hover:bg-none h-80"
                             image={perso}
                             category="Pesronal branding"
@@ -31,10 +49,10 @@ function Services() {
                         <ServiceItem
                             className="bg-none col-span-1 h-60 mb-6"
                             image={perso}
-                            category="Pesronal branding"s
+                            category="Pesronal branding" s
                             categoryDesc="For pesronal vehicles"
                             navig="/cooperate"
-                        />
+                        /> */}
                     </div>
                 </div>
             </div>

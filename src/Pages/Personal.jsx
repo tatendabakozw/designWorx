@@ -1,12 +1,25 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Navbar from '../Components/Navbar'
 import ServiceItem from '../Components/ServiceItem'
 import GeneralLayout from '../Layouts/GeneralLayout'
 import image from '../assets/img/custombranding/custom1.jpg'
 import ServiceItem2 from '../Components/ServiceItem2'
 import image2 from '../assets/img/cooperatebranding/IMG_4993.jfif'
+import { db } from '../firebase'
 
 function Personal() {
+    const [services, setNewServices] = useState()
+
+    useEffect(() => {
+        db.collection('pageservices').onSnapshot(snapshot => {
+            setNewServices(snapshot.docs.map(doc => ({
+                id: doc.id,
+                services: doc.data()
+            })));
+        })
+    }, [])
+    console.log(services)
+
     return (
         <GeneralLayout>
             <Navbar transparent />
@@ -14,14 +27,21 @@ function Personal() {
                 <p className="text-center text-xl text-white mb-2 font-semibold">Custom branding</p>
                 <p className="text-center text-gray-400 mb-8">Clients we offered personal branding</p>
                 <div className="services">
-                    <ServiceItem
-                        image={image}
-                        companyname="Some company"
-                    />
-                    <ServiceItem2
-                        image={image2}
-                        companyname="Some company"
-                    />
+                    {
+                        services?.map(service => (
+                            <>
+                                {service.services.service === "Custom branding" ? (
+                                    <>
+                                        <ServiceItem
+                                            image={service.services.image}
+                                            companyname={service.services.customer}
+                                        />
+                                    </>
+                                ) : null}
+                            </>
+                        ))
+                    }
+
                 </div>
             </div>
         </GeneralLayout>
