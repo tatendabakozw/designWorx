@@ -33,20 +33,9 @@ function Login() {
     //login using credentials
     const signInWithCreds = (e) => {
         e.preventDefault()
-        auth.signInWithEmailAndPassword(email, password)
-            .then((userCredential) => {
-                // Signed in
-                var user = userCredential.user;
-                setMsg('Login Successfull')
-                console.log(user)
-                // ...
-            })
-            .catch((error) => {
-                // var errorCode = error.code;
-                // var errorMessage = error.message;
-                setMsg(error.code)
-                console.log(msg)
-            });
+        // 
+        localStorage.setItem('designworxadmin', email)
+        setTimeout(() => { history.push('/dashboard') }, 1000);
     }
 
     return (
@@ -74,7 +63,7 @@ function Login() {
                                     </div>
                                     <div className="flex  flex-col flex-auto px-4 lg:px-10 py-10 pt-0">
                                         <div className="text-gray-500 text-center mb-3 font-bold">
-                                            <small>Or sign in with credentials</small>
+                                            <small>sign in with credentials</small>
                                         </div>
 
                                         {/* the sign in form */}
