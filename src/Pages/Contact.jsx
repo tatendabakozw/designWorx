@@ -19,11 +19,11 @@ function Contact() {
                     <p className="flex flex-row items-center mb-4 text-gray-700">
                         <PhoneEnabledIcon /> <p>0777341553</p>
                     </p>
-                    <p className="flex flex-row items-center mb-4 text-gray-700">
+                    {/* <p className="flex flex-row items-center mb-4 text-gray-700">
                         <EmailIcon /> <p>trewmane@gmail.com</p>
-                    </p>
+                    </p> */}
                     <p className="flex flex-row items-center mb-4 text-gray-700">
-                        <LocationOnIcon /> <p>Cnr Harare and Robert Mubage </p>
+                        <LocationOnIcon /> <p>Cnr Harare and Robert Mugabe </p>
                     </p>
                 </div>
                 <div className="w-full p-2">
