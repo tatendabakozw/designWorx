@@ -210,7 +210,7 @@ function Home() {
                             <div className="flex flex-wrap text-center justify-center">
                                 <div className="w-full lg:w-6/12 px-4">
                                     <h2 className="text-4xl font-semibold text-white">
-                                        We archieve!
+                                        We achieve!
                                 </h2>
                                     <p className="text-lg leading-relaxed mt-4 mb-4 text-gray-500">
                                         We’re proud to have produced years of happy customers and look forward to continuing our work for many more to come!
