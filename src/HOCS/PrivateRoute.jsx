@@ -5,7 +5,7 @@ function PrivateRoute({component: Component, ...rest}) {
     const user = localStorage.getItem('designworxadmin')
     return (
         <Route {...rest} render={(props) => (
-            user === "me@gmail.com" ? (<Component {...props} />)
+            user === "delroychip@gmail.com" ? (<Component {...props} />)
               : (<Redirect to='/login' />)
         )} />
     )

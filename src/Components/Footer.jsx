@@ -3,6 +3,7 @@ import facebook from '../assets/img/facebook.svg'
 import instagram from '../assets/img/instagram.svg'
 import twitter from '../assets/img/twitter.svg'
 import logo from '../assets/img/logo.png'
+import { Link } from "react-router-dom";
 
 export default function Footer() {
   return (
@@ -71,19 +72,16 @@ export default function Footer() {
                   </span>
                   <ul className="list-unstyled">
                     <li>
-                      <a className="text-gray-400 hover:text-gray-700 font-semibold block pb-2 text-sm"
-                         href="https://www.creative-tim.com/presentation">About Us
-                      </a>
+                      <Link to='/about' className="text-gray-400 hover:text-gray-700 font-semibold block pb-2 text-sm">About Us
+                      </Link>
                     </li>
                     <li>
-                      <a className="text-gray-400 hover:text-gray-700 font-semibold block pb-2 text-sm"
-                         href="https://www.creative-tim.com/presentation">Contact Us
-                      </a>
+                      <Link to='/contact' className="text-gray-400 hover:text-gray-700 font-semibold block pb-2 text-sm">Contact Us
+                      </Link>
                     </li>
                     <li>
-                      <a className="text-gray-400 hover:text-gray-700 font-semibold block pb-2 text-sm"
-                         href="https://www.creative-tim.com/bootstrap-themes/free">Our Services
-                      </a>
+                      <Link to='/services' className="text-gray-400 hover:text-gray-700 font-semibold block pb-2 text-sm">Our Services
+                      </Link>
                     </li>
 
                   </ul>
@@ -98,10 +96,10 @@ export default function Footer() {
               <div className="text-sm text-gray-400 font-semibold py-1">
                 Copyright © {new Date().getFullYear()}{" "}DesignWorks{" "}
                 <a
-                  href="/"
+                  href="https://www.devbako.co.zw"
                   className="text-gray-600 hover:text-gray-900"
                 >
-                  Tatenda Bako
+                  By Tatenda Bako
                 </a>.
               </div>
             </div>

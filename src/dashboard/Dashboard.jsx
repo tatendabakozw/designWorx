@@ -134,12 +134,12 @@ function Dashboard() {
                             <p>$300</p>
                         </div> */}
                     </div>
-                    <Link to='/orders' className="flex cursor-pointer flex-row text-sm rounded items-center text-gray-500 p-4 mb-4 bg-white shadow">
+                    {/* <Link to='/orders' className="flex cursor-pointer flex-row text-sm rounded items-center text-gray-500 p-4 mb-4 bg-white shadow">
                         <MailOutlineIcon fontSize="small" />
                         <p>Orders</p>
                         <div className="flex-1"></div>
                         <p className="text-blue-700">View All</p>
-                    </Link>
+                    </Link> */}
                 </div>
                 <div className="right w-4/5 pl-8">
                     <div className="flex flex-col md:items-start items-center">
@@ -148,13 +148,12 @@ function Dashboard() {
                             {/* <p className="text-gray-800 text-xl font-semibold mb-1">Benifits of upgrading account</p> */}
                             <p className="text-gray-600">Use this dashboard to add products to you services</p>
                         </span>
-                        <span onClick={openDialog} className="bg-white hover:shadow-md cursor-pointer p-4 my-4 shadow rounded">
-                            {/* <p className="text-gray-800 text-xl font-semibold mb-1">Benifits of upgrading account</p> */}
+                        {/* <span onClick={openDialog} className="bg-white hover:shadow-md cursor-pointer p-4 my-4 shadow rounded">
                             <p className="text-red-600 flex flex-row items-center">
                                 <AddIcon />
                                 <p>Add jobs done</p>
                             </p>
-                        </span>
+                        </span> */}
                         <Dialog
                             open={openTDialog}
                             onClose={closeDialog}
@@ -198,16 +197,14 @@ function Dashboard() {
                             </DialogActions>
                         </Dialog>
                         <div className=" w-full flex flex-col">
-                            <p className="text-gray-600 mt-4">Click on any to edit how these are viewed on services page</p>
+                            <p className="text-gray-600 mt-4">Items below will be viewed on services page</p>
+                            <p className="text-gray-600 mt-4">Adding just three will be a good number.The one below is an example that will be deleted on request</p>
                             <div className="flex">
-
-
-
                                 <span onClick={openServDialog} className="bg-white hover:shadow-md cursor-pointer p-4 my-4 shadow rounded">
                                     {/* <p className="text-gray-800 text-xl font-semibold mb-1">Benifits of upgrading account</p> */}
                                     <p className="text-red-600 flex flex-row items-center">
                                         <AddIcon />
-                                        <p>Add branding</p>
+                                        <p>Add service</p>
                                     </p>
                                 </span>
                                 <Dialog
@@ -252,7 +249,7 @@ function Dashboard() {
                                 {
                                     newservices?.map(service => (
                                         <span className="px-4 cursor-pointer items-center flex flex-col">
-                                            <p className="text-gray-700 text-sm">{service.services.service}</p>
+                                            <p className="text-gray-700 text-sm">{service.services.brandtype}</p>
                                             <div className="border-b-2 border-gray-400 my-2 rounded-sm w-10"></div>
                                             <img src={service.services.brandpic} alt="cooperate" />
                                         </span>
