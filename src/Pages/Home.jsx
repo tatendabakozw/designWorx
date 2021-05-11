@@ -173,7 +173,7 @@ function Home() {
                                             Our services
                                     </h3>
                                         <p className="mt-4 text-lg leading-relaxed text-gray-600">
-                                            We offer quite a variety of services for all sorts of vehicles
+                                        We offer a variety of branding services for all vehicles:
                                     </p>
                                         <ul className="list-none mt-6">
                                             <li className="py-2">
