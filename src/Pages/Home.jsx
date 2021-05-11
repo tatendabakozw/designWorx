@@ -183,7 +183,7 @@ function Home() {
                                                     </div>
                                                     <div>
                                                         <h4 className="text-gray-600">
-                                                            corporate branding
+                                                            Corporate branding
                                                     </h4>
                                                     </div>
                                                 </div>
