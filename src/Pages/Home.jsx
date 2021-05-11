@@ -230,9 +230,9 @@ function Home() {
                                             <h4 className="text-2xl font-semibold">
                                                 Want branding from us?
                                         </h4>
-                                            <p className="leading-relaxed mt-1 mb-4 text-gray-600">
+                                            {/* <p className="leading-relaxed mt-1 mb-4 text-gray-600">
                                                 Give us information about you, we will contact you in 2 working days.
-                                            </p>
+                                            </p> */}
                                             <div className="relative w-full mb-3 mt-8">
                                                 <label
                                                     className="block uppercase text-gray-700 text-xs font-bold mb-2"
