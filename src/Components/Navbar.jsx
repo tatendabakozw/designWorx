@@ -19,7 +19,7 @@ export default function Navbar(props) {
           <div className="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
             <a
               className={
-                (props.transparent ? "text-white" : "text-gray-800") +
+                (props.transparent ? "text-black" : "text-gray-800") +
                 " text-sm font-bold leading-relaxed flex flex-row items-center mr-4 py-2 whitespace-no-wrap"
               }
               href="/"
@@ -48,7 +48,7 @@ export default function Navbar(props) {
                 <Link to='/about'
                   className={
                     (props.transparent
-                      ? "lg:text-white lg:hover:text-gray-300 text-gray-800"
+                      ? "lg:text-black lg:hover:text-gray-900 text-black"
                       : "text-gray-800 hover:text-gray-600") +
                     " px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
                   }>
@@ -60,7 +60,7 @@ export default function Navbar(props) {
                 <Link to='/services'
                   className={
                     (props.transparent
-                      ? "lg:text-white lg:hover:text-gray-300 text-gray-800"
+                      ? "lg:text-black lg:hover:text-gray-900 text-black"
                       : "text-gray-800 hover:text-gray-600") +
                     " px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
                   }>
