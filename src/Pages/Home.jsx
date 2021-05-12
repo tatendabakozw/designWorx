@@ -69,17 +69,14 @@ function Home() {
                         <div className="absolute top-0 w-full h-full bg-center bg-cover">
                             <span id="blackOverlay" className="w-full h-full absolute opacity-25 bg-black"></span>
                         </div>
-                        <div className="main container md:px-16 px-8 relative items-center mx-auto grid md:grid-cols-2 grid-cols-1">
+                        <div className="main container md:px-16 px-8 relative items-center mx-auto grid md:grid-cols-3 grid-cols-1">
                             <div className="text flex flex-col items-center col-span-1 md:mb-0 mb-2">
                                 {/* <p className="companyName md:text-8xl text-5xl text-red-600 mb-2 font-extrabold">DesignWorx</p> */}
                                 <img src={whiteLogo} alt="logo" className="companyName w-96"/>
-                                <p className="slogan text-2xl text-center uppercase mt-16 text-white">PROFESSIONAL MOTOR GRAPhics</p>
-                                <div className="demoandbrabdbtn flex mt-4">
-                                    <Link to='/services' className="bg-red-600 mr-2 hover:bg-red-700 text-white font-semibold cursor-pointer p-2 rounded-sm uppercase">Our Jobs</Link>
-                                    <Link to='/contact' className=" text-white ml-2 border-2 border-red-600 hover:bg-red-600 cursor-pointer hover:text-white font-semibold p-2 rounded-sm uppercase">Place your ORDER</Link>
-                                </div>
+                                <p className="text-black ml-2 mt-8 border-2 text-xl border-red-600 cursor-pointer font-extrabold p-2 rounded-sm uppercase">PROFESSIONAL MOTOR GRAPhics</p>
+                               
                             </div>
-                            <div className="col-span-1 bottom-0">
+                            <div className="col-span-2 bottom-0">
                                 <img
                                     ref={el => { carImage = el }}
                                     src={carBa} alt="carbanner image" className="flex-self" 
