@@ -45,6 +45,17 @@ export default function DashboardNavbar(props) {
            
             <ul className="flex flex-col lg:flex-row list-none lg:ml-auto">
             <li className="flex items-center">
+                <Link to='/dahsbaord'
+                  className={
+                    (props.transparent
+                      ? "lg:text-black lg:hover:text-gray-900 text-black"
+                      : "text-gray-800 hover:text-gray-600") +
+                    " px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
+                  }>
+                  Dashboard
+                </Link>
+              </li>
+            <li className="flex items-center">
                 <Link to='/edithomepage'
                   className={
                     (props.transparent
