@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useEffect, useState} from 'react';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
 import { lighten, makeStyles } from '@material-ui/core/styles';
@@ -20,10 +20,8 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Switch from '@material-ui/core/Switch';
 import DeleteIcon from '@material-ui/icons/Delete';
 import FilterListIcon from '@material-ui/icons/FilterList';
+import { db } from '../firebase';
 
-function createData(name, calories, fat, carbs, protein) {
-  return { name, calories, fat, carbs, protein };
-}
 
 const rows = [
 //   createData('Cupcake', 305, 3.7, 67, 4.3),
@@ -58,20 +56,20 @@ function getComparator(order, orderBy) {
 }
 
 function stableSort(array, comparator) {
-  const stabilizedThis = array.map((el, index) => [el, index]);
-  stabilizedThis.sort((a, b) => {
+  const stabilizedThis = array?.map((el, index) => [el, index]);
+  stabilizedThis?.sort((a, b) => {
     const order = comparator(a[0], b[0]);
     if (order !== 0) return order;
     return a[1] - b[1];
   });
-  return stabilizedThis.map((el) => el[0]);
+  return stabilizedThis?.map((el) => el[0]);
 }
 
 const headCells = [
   { id: 'name', numeric: false, disablePadding: true, label: 'Name(s)' },
   { id: 'email', numeric: true, disablePadding: false, label: 'Email/Phonenumber' },
   { id: 'message', numeric: true, disablePadding: false, label: 'sating' },
-  { id: 'date', numeric: true, disablePadding: false, label: 'Days' },
+    { id: 'date', numeric: true, disablePadding: false, label: 'Days' },
 //   { id: 'protein', numeric: true, disablePadding: false, label: 'Protein (g)' },
 ];
 
@@ -152,6 +150,10 @@ const EnhancedTableToolbar = (props) => {
   const classes = useToolbarStyles();
   const { numSelected } = props;
 
+  const deleteItem = (e) =>{
+    e.preventDefault()
+  }
+
   return (
     <Toolbar
       className={clsx(classes.root, {
@@ -164,7 +166,7 @@ const EnhancedTableToolbar = (props) => {
         </Typography>
       ) : (
         <Typography className={classes.title} variant="h6" id="tableTitle" component="div">
-          Nutrition
+          Orders
         </Typography>
       )}
 
@@ -221,6 +223,18 @@ export default function OrderTable() {
   const [page, setPage] = React.useState(0);
   const [dense, setDense] = React.useState(false);
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
+  const [orders, setOrders] = useState()
+
+    useEffect(() => {
+        db.collection('messages').onSnapshot(snapshot => {
+            setOrders(snapshot.docs.map(doc => ({
+                id: doc.id,
+                messages: doc.data()
+            })));
+        })
+    }, [])
+
+    console.log(orders)
 
   const handleRequestSort = (event, property) => {
     const isAsc = orderBy === property && order === 'asc';
@@ -272,7 +286,7 @@ export default function OrderTable() {
 
   const isSelected = (name) => selected.indexOf(name) !== -1;
 
-  const emptyRows = rowsPerPage - Math.min(rowsPerPage, rows.length - page * rowsPerPage);
+  const emptyRows = rowsPerPage - Math.min(rowsPerPage, orders?.length - page * rowsPerPage);
 
   return (
     <div className={classes.root}>
@@ -295,8 +309,7 @@ export default function OrderTable() {
               rowCount={rows.length}
             />
             <TableBody>
-              {stableSort(rows, getComparator(order, orderBy))
-                .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+              {stableSort(orders, getComparator(order, orderBy))?.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                 .map((row, index) => {
                   const isItemSelected = isSelected(row.name);
                   const labelId = `enhanced-table-checkbox-${index}`;
@@ -318,12 +331,11 @@ export default function OrderTable() {
                         />
                       </TableCell>
                       <TableCell component="th" id={labelId} scope="row" padding="none">
-                        {row.name}
+                        {row.messages.name}
                       </TableCell>
-                      <TableCell align="right">{row.calories}</TableCell>
-                      <TableCell align="right">{row.fat}</TableCell>
-                      <TableCell align="right">{row.carbs}</TableCell>
-                      <TableCell align="right">{row.protein}</TableCell>
+                      <TableCell align="right">{row.messages.email}</TableCell>
+                      <TableCell align="right">{row.messages.message}</TableCell>
+                      <TableCell align="right">{new Date(row.messages.createdAt).toUTCString()}</TableCell>
                     </TableRow>
                   );
                 })}

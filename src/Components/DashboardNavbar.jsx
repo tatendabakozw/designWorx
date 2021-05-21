@@ -1,10 +1,17 @@
 import React from "react";
 import logo from '../assets/img/logo.png'
-import {Link} from 'react-router-dom'
+import {Link, useHistory} from 'react-router-dom'
 import MenuIcon from '@material-ui/icons/Menu';
 
 export default function DashboardNavbar(props) {
   const [navbarOpen, setNavbarOpen] = React.useState(false);
+  const history = useHistory()
+
+  const logout = () =>{
+    localStorage.removeItem('designworxadmin')
+    setTimeout(() => { history.push('/') }, 1000);
+  }
+
   return (
     <>
       <nav
@@ -45,7 +52,18 @@ export default function DashboardNavbar(props) {
            
             <ul className="flex flex-col lg:flex-row list-none lg:ml-auto">
             <li className="flex items-center">
-                <Link to='/dahsbaord'
+                <Link to='/orders'
+                  className={
+                    (props.transparent
+                      ? "lg:text-black lg:hover:text-gray-900 text-black"
+                      : "text-gray-800 hover:text-gray-600") +
+                    " px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
+                  }>
+                  Orders
+                </Link>
+              </li>
+            <li className="flex items-center">
+                <Link to='/dashboard'
                   className={
                     (props.transparent
                       ? "lg:text-black lg:hover:text-gray-900 text-black"
@@ -80,7 +98,7 @@ export default function DashboardNavbar(props) {
               </li>
 
               <li className="flex items-center">
-                <Link to='/contact'
+                <span onClick={logout}
                   className={
                     (props.transparent
                       ? "bg-red-600 text-white active:bg-gray-100"
@@ -91,7 +109,7 @@ export default function DashboardNavbar(props) {
                   style={{ transition: "all .15s ease" }}
                 >
                  Logout
-                </Link>
+                </span>
               </li>
             </ul>
           </div>

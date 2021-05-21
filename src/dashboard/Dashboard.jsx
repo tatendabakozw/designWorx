@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 // import userIcon from '../../Images/dashuser.svg'
-import MailOutlineIcon from '@material-ui/icons/MailOutline';
 import { Link } from 'react-router-dom';
 import DashboardLayout from '../Layouts/DashboardLayout';
 import logo from '../assets/img/logo.png'
@@ -200,13 +199,13 @@ function Dashboard() {
                             <p className="text-gray-600 mt-4">Items below will be viewed on services page</p>
                             <p className="text-gray-600 mt-4">Adding just three will be a good number.The one below is an example that will be deleted on request</p>
                             <div className="flex">
-                                <span onClick={openServDialog} className="bg-white hover:shadow-md cursor-pointer p-4 my-4 shadow rounded">
+                                <Link to='/eitservicespage' className="bg-white hover:shadow-md cursor-pointer p-4 my-4 shadow rounded">
                                     {/* <p className="text-gray-800 text-xl font-semibold mb-1">Benifits of upgrading account</p> */}
                                     <p className="text-red-600 flex flex-row items-center">
                                         <AddIcon />
                                         <p>Add service</p>
                                     </p>
-                                </span>
+                                </Link>
                                 <Dialog
                                     open={openSDialog}
                                     onClose={closeServDialog}
