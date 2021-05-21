@@ -9,8 +9,10 @@ import diverse from '../assets/img/cooperatebranding/devers.jfif'
 import logo from '../assets/img/logo.png'
 import custom1 from '../assets/img/custombranding/custom1.jpg'
 import GeneralLayout from '../Layouts/GeneralLayout'
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import whiteLogo from '../assets/img/dwLogo.png'
+import { db } from '../firebase'
+import { useState } from 'react'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -56,6 +58,18 @@ function Home() {
             }
         })
     }, [t1])
+    const [homestuff, setHomestuff] = useState()
+
+    //get services from firebase
+    useEffect(() => {
+        db.collection('homepage').onSnapshot(snapshot => {
+            setHomestuff(snapshot.docs.map(doc => ({
+                id: doc.id,
+                homeitem: doc.data()
+            })))
+        })
+    }, [])
+    console.log(homestuff)
 
     return (
         <>
@@ -72,16 +86,16 @@ function Home() {
                         <div className="main container md:px-16 px-8 relative items-center mx-auto grid md:grid-cols-3 grid-cols-1">
                             <div className="text flex flex-col items-center col-span-1 md:mb-0 mb-2">
                                 {/* <p className="companyName md:text-8xl text-5xl text-red-600 mb-2 font-extrabold">DesignWorx</p> */}
-                                <img src={whiteLogo} alt="logo" className="companyName w-96"/>
+                                <img src={whiteLogo} alt="logo" className="companyName w-96" />
                                 <p className="text-black ml-2 mt-8 border-2 text-xl border-red-600 cursor-pointer font-extrabold p-2 rounded-sm uppercase">PROFESSIONAL MOTOR GRAPhics</p>
-                               
+
                             </div>
                             <div className="col-span-2 bottom-0">
                                 <img
                                     ref={el => { carImage = el }}
-                                    src={carBa} alt="carbanner image" className="flex-self" 
+                                    src={carBa} alt="carbanner image" className="flex-self"
                                     alt="iima"
-                                    />
+                                />
                             </div>
                         </div>
                         <div
@@ -110,24 +124,18 @@ function Home() {
                             <p className="text-7xl text-center text-red-600 font-extrabold">01</p>
                             <p className="row2-t text-white text-center text-3xl mt-2 mb-24">Why us?</p>
                             {/* <p>custom branding</p> */}
-                            <div className="row2-p grid md:grid-cols-2 grid-cols-1 gap-2 mb-8">
-                                <div className="col-span-1">
-                                    <img src={coop} alt="coop" />
-                                </div>
-                                <div className="col-span-1 mx-auto flex items-center">
-                                    <p className="md:text-4xl text-xl font-semibold text-white text-center">We exceed our clients expectations</p>
-                                </div>
-                            </div>
-                            <div className="row2-p grid md:grid-cols-2 gric-cols-1 gap-2">
-                                <div className="col-span-1 mx-auto flex items-center">
-                                    <p className="md:text-4xl text-xl font-semibold text-white text-center">We diversify our products depending on customers choice</p>
-                                </div>
-                                <div className="col-span-1">
-                                    <img src={diverse} alt="divers" />
-                                </div>
-
-                            </div>
-
+                            {
+                                homestuff?.map(item => (
+                                    <div key={item.id} className="row2-p grid md:grid-cols-2 grid-cols-1 gap-2 mb-8">
+                                        <div className="col-span-1">
+                                            <img src={item.homeitem.home_picture} alt="coop" />
+                                        </div>
+                                        <div className="col-span-1 mx-auto flex items-center">
+                                            <p className="md:text-4xl text-xl font-semibold text-white text-center">{item.homeitem.home_title}</p>
+                                        </div>
+                                    </div>
+                                ))
+                            }
                         </div>
                     </div>
 
@@ -170,7 +178,7 @@ function Home() {
                                             Our services
                                     </h3>
                                         <p className="mt-4 text-lg leading-relaxed text-gray-600">
-                                        We offer a variety of branding services for all vehicles:
+                                            We offer a variety of branding services for all vehicles:
                                     </p>
                                         <ul className="list-none mt-6">
                                             <li className="py-2">
@@ -203,8 +211,8 @@ function Home() {
                     </section>
 
                     <section className="pb-20 relative block bg-gray-900">
-                        <div className="container mx-auto px-4 lg:pt-24 lg:pb-64">
-                            <div className="flex flex-wrap text-center justify-center">
+                        <div className="container mx-auto px-4 lg:pt-36 lg:pb-64">
+                            {/* <div className="flex flex-wrap text-center justify-center">
                                 <div className="w-full lg:w-6/12 px-4">
                                     <h2 className="text-4xl font-semibold text-white">
                                         We achieve!
@@ -214,8 +222,8 @@ function Home() {
                                         What are you waiting for? Stop by our store today for an exceptional branding experience.
                                     </p>
                                 </div>
-                            </div>
-                           
+                            </div> */}
+
                         </div>
                     </section>
                     <section className="relative block py-24 lg:pt-0 bg-gray-900">
@@ -227,9 +235,6 @@ function Home() {
                                             <h4 className="text-2xl font-semibold">
                                                 Want branding from us?
                                         </h4>
-                                            {/* <p className="leading-relaxed mt-1 mb-4 text-gray-600">
-                                                Give us information about you, we will contact you in 2 working days.
-                                            </p> */}
                                             <div className="relative w-full mb-3 mt-8">
                                                 <label
                                                     className="block uppercase text-gray-700 text-xs font-bold mb-2"

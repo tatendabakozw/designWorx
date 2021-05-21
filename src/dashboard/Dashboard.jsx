@@ -53,7 +53,7 @@ function Dashboard() {
 
     const AddService = (e) => {
         e.preventDefault()
-        const uploadTask = storage.ref(`/images/${picture.name}`).put(picture)
+        const uploadTask = storage.ref(`/images/service/${Date.now() + '-' + picture.name}`).put(picture)
         uploadTask.on(
             "state_changed",
             (snapshot) => {
@@ -242,6 +242,7 @@ function Dashboard() {
                                         <Button onClick={AddBrand} color="primary" >
                                             <p className="font-semibold">Add</p>
                                         </Button>
+                                        <p>{progress}</p>
                                     </DialogActions>
                                 </Dialog>
                             </div>

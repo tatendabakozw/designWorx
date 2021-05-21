@@ -10,6 +10,8 @@ import Dashboard from './dashboard/Dashboard';
 import Login from './Pages/Login';
 import Orders from './dashboard/Orders';
 import PrivateRoute from './HOCS/PrivateRoute';
+import EditHomePage from './dashboard/EditHomePage';
+import EditServicesPage from './dashboard/EditServicesPage';
 
 function App() {
   return (
@@ -19,6 +21,8 @@ function App() {
         <Route path='/cooperate' component={Cooperate}/>
         <Route path='/login' component={Login}/>
         <PrivateRoute path='/dashboard' component={Dashboard}/>
+        <PrivateRoute path='/edithomepage' component={EditHomePage}/>
+        <PrivateRoute path='/eitservicespage' component={EditServicesPage}/>
         <PrivateRoute path='/orders' component={Orders}/>
         <Route path='/personal' component={Personal}/>
         <Route path='/contact' component={Contact}/>
