@@ -4,12 +4,9 @@ import banner from '../assets/img/carsBack.png'
 import carBa from '../assets/img/carBaB.png'
 import { gsap, Power3, Bounce, TimelineLite } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import coop from '../assets/img/cooperatebranding/change.jpg'
-import diverse from '../assets/img/cooperatebranding/devers.jfif'
 import logo from '../assets/img/logo.png'
 import custom1 from '../assets/img/custombranding/custom1.jpg'
 import GeneralLayout from '../Layouts/GeneralLayout'
-import { Link } from 'react-router-dom'
 import whiteLogo from '../assets/img/dwLogo.png'
 import { db } from '../firebase'
 import { useState } from 'react'
@@ -34,7 +31,7 @@ function Home() {
             }
         })
         gsap.from('.row2', {
-            duration: 2, y: '100', opacity: 0, ease: 'ease-out', scrollTrigger: {
+            duration: 1, y: '80', opacity: 0, ease: 'ease-out', scrollTrigger: {
                 trigger: '.here',
                 // start: 'top 90%',
                 // end: 'bottom 60%',

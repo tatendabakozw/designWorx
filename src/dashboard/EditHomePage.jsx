@@ -1,6 +1,5 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import DashboardLayout from '../Layouts/DashboardLayout'
-import the_picture from '../assets/img/custombranding/custom1.jpg'
 import EditIcon from '@material-ui/icons/Edit'
 import DeleteIcon from '@material-ui/icons/Delete'
 import { db, storage } from '../firebase'
@@ -8,9 +7,20 @@ import { db, storage } from '../firebase'
 function EditHomePage() {
     const [home_title, setHomeTitle] = useState('')
     const [picture, setPicture] = useState(null)
-    const [progress, setProgress] = useState(0)
+    const [progress, setProgress] = useState(101)
     const [loading, setLoading] = useState(false)
     const [err, setErr] = useState('')
+    const [homestuff, setHomestuff] = useState()
+
+    useEffect(() => {
+        db.collection('homepage').onSnapshot(snapshot => {
+            setHomestuff(snapshot.docs.map(doc => ({
+                id: doc.id,
+                homeitem: doc.data()
+            })))
+        })
+    }, [])
+    console.log(homestuff)
 
     const addHomeItem = (e) => {
         e.preventDefault()
@@ -43,9 +53,6 @@ function EditHomePage() {
         e.preventDefault()
     }
 
-    const deleteHomeItem = (e) => {
-        e.preventDefault()
-    }
 
     return (
         <DashboardLayout>
@@ -66,21 +73,32 @@ function EditHomePage() {
                                 type="file"
                                 onChange={e => setPicture(e.target.files[0])}
                                 className="border border-gray-300 rounded-sm p-2 mr-4" placeholder="home title for service" />
-                            {loading ? (<p>loading...</p>) : (
+                            {parseInt(progress) < 100 ? (<p>loading...</p>) : (
                                 <button type="submit" className="p-2 bg-blue-700 text-white text-sm rounded-sm hover:bg-blue-600">Add Home Item</button>
                             )}
                         </form>
                     </div>
                 </div>
                 <div className="home_items p-4">
-                    <HomeItem title={`We exceed our clients expectations`} home_pic={the_picture} />
+                    {
+                        homestuff?.map(item => (
+                            <HomeItem key={item.id} id={item.id} title={item.homeitem.home_title} home_pic={item.homeitem.home_picture} />
+                        ))
+                    }
                 </div>
             </div>
         </DashboardLayout>
     )
 }
 
-const HomeItem = ({ title, home_pic }) => {
+const HomeItem = ({ title, home_pic, id }) => {
+
+    const deleteHomeItem = async (e) => {
+        e.preventDefault()
+        const res = await db.collection('homepage').doc(id).delete();
+        console.log(res)
+    }
+
     return (
         <div className="grid w-full bg-white shadow p-4 grid-cols-6 gap-8 mb-8 items-center justify-around">
             <div className="col-span-2 ">
@@ -92,7 +110,7 @@ const HomeItem = ({ title, home_pic }) => {
                     <span className="text-blue-400 mr-4 cursor-pointer">
                         <EditIcon fontSize="small" />
                     </span>
-                    <span className="text-red-400 cursor-pointer">
+                    <span onClick={deleteHomeItem} className="text-red-400 cursor-pointer">
                         <DeleteIcon fontSize="small" />
                     </span>
                 </div>
