@@ -51,7 +51,7 @@ function Contact() {
                         <PhoneEnabledIcon /> <p>+2638644290001</p>
                     </p>
                     <p className="flex flex-row items-center mb-4 text-gray-700">
-                        <EmailIcon /> <p>delroychip@gmail.com</p>
+                        {/* <EmailIcon /> <p>delroychip@gmail.com</p> */}
                     </p>
                     <p className="flex flex-row items-center mb-4 text-gray-700">
                         <LocationOnIcon /> <p>110 Harare St. Corner R. Mugabe </p>
