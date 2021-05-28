@@ -86,7 +86,7 @@ function EditServicesPage() {
                 <div className="home_items p-4">
                     {
                         newServices?.map(item => (
-                            <ServiceItem key={item.id} id={item.id} title={item.services.brandtype} home_pic={item.services.brandpic} />
+                            <ServiceItem key={item.id} id={item.id} title={item.services.service} home_pic={item.services.image} />
                         ))
                     }
                 </div>
