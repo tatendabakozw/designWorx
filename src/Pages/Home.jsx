@@ -118,7 +118,7 @@ function Home() {
 
                     <div className="pb-32 px-8 bg-gray-900 min-h-screen pt-16">
                         <div className="row2 container mx-auto px-4">
-                            {/* <p className="text-7xl text-center text-red-600 font-extrabold">01</p> */}
+                            <p className="text-7xl text-center text-red-600 font-extrabold">01</p>
                             <p className="row2-t text-white text-center text-3xl mt-2 mb-24">Why us?</p>
                             {/* <p>custom branding</p> */}
                             {
