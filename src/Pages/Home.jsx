@@ -30,6 +30,14 @@ function Home() {
                 toggleActions: 'restart complete reverse reset'
             }
         })
+        // gsap.from('.companyName', {
+        //     duration: 2, y: '50', opacity: 1, ease: 'ease-out', scrollTrigger: {
+        //         trigger: '.main',
+        //         // start: 'top 90%',
+        //         // end: 'bottom 60%',
+        //         toggleActions: 'restart complete reverse reset'
+        //     }
+        // })
         gsap.from('.row2', {
             duration: 1, y: '80', opacity: 0, ease: 'ease-out', scrollTrigger: {
                 trigger: '.here',
@@ -54,7 +62,7 @@ function Home() {
                 toggleActions: 'restart complete reverse reset'
             }
         })
-    }, [t1])
+    }, [])
     const [homestuff, setHomestuff] = useState()
 
     //get services from firebase
@@ -118,7 +126,7 @@ function Home() {
 
                     <div className="pb-32 px-8 bg-gray-900 min-h-screen pt-16">
                         <div className="row2 container mx-auto px-4">
-                            <p className="text-7xl text-center text-red-600 font-extrabold">01</p>
+                            {/* <p className="text-7xl text-center text-red-600 font-extrabold">01</p> */}
                             <p className="row2-t text-white text-center text-3xl mt-2 mb-24">Why us?</p>
                             {/* <p>custom branding</p> */}
                             {
