@@ -84,7 +84,7 @@ function Home() {
                             <div className="text flex flex-col items-center col-span-1 md:mb-0 mb-2">
                                 {/* <p className="companyName md:text-8xl text-5xl text-red-600 mb-2 font-extrabold">DesignWorx</p> */}
                                 <img src={whiteLogo} alt="logo" className="companyName w-96" />
-                                <p className="text-black ml-2 mt-8 border-2 text-xl border-red-600 cursor-pointer font-extrabold p-2 rounded-sm uppercase">PROFESSIONAL MOTOR GRAPhics</p>
+                                <p className="text-black ml-2 mt-8 border-2 md:text-xl text-sm border-red-600 cursor-pointer font-extrabold p-2 rounded-sm uppercase">PROFESSIONAL MOTOR GRAPhics</p>
 
                             </div>
                             <div className="col-span-2 bottom-0">

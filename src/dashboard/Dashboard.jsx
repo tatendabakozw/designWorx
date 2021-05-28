@@ -249,9 +249,9 @@ function Dashboard() {
                                 {
                                     newservices?.map(service => (
                                         <span className="px-4 cursor-pointer items-center flex flex-col">
-                                            <p className="text-gray-700 text-sm">{service.services.brandtype}</p>
+                                            <p className="text-gray-700 text-sm">{service.services.service}</p>
                                             <div className="border-b-2 border-gray-400 my-2 rounded-sm w-10"></div>
-                                            <img src={service.services.brandpic} alt="cooperate" />
+                                            <img src={service.services.image} alt="cooperate" />
                                         </span>
                                     ))
                                 }
