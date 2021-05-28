@@ -66,11 +66,11 @@ function Services() {
 const ServiceItem = ({ className, image, category, categoryDesc, navig }) => {
     return (
         <div className="div">
-            <Link to={navig} className={`${className} ser cursor-pointer hover:shadow-lg p-4 mb-5 content-center items-center flex`}>
+            <span className={`${className} ser cursor-pointer hover:shadow-lg p-4 mb-5 content-center items-center flex`}>
                 <div className="image text-center flex flex-col items-center w-full">
                     <img src={image} alt="image" className="w-56" />
                 </div>
-            </Link>
+            </span>
             <p className="text-white text-center capitalize font-semibold">{category}</p>
             <p className="text-gray-400 text-center capitalize text-sm">{categoryDesc}</p>
         </div>
