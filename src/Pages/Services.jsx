@@ -1,9 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Navbar from '../Components/Navbar'
 import GeneralLayout from '../Layouts/GeneralLayout'
-import coop from '../assets/img/coop1.svg'
-import perso from '../assets/img/perso.svg'
-import { Link } from 'react-router-dom'
 import { db } from '../firebase'
 
 function Services() {
