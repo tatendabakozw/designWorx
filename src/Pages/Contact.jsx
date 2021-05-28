@@ -48,13 +48,13 @@ function Contact() {
                 <div className="w-full flex flex-col justify-around">
                     <p className="text-gray-600 text-center font-semibold">Contact Us</p>
                     <p className="flex flex-row items-center mb-4 text-gray-700">
-                        <PhoneEnabledIcon /> <p>0777341553</p>
+                        <PhoneEnabledIcon /> <p>+2638644290001</p>
                     </p>
                     <p className="flex flex-row items-center mb-4 text-gray-700">
                         <EmailIcon /> <p>delroychip@gmail.com</p>
                     </p>
                     <p className="flex flex-row items-center mb-4 text-gray-700">
-                        <LocationOnIcon /> <p>Cnr Harare and Robert Mugabe </p>
+                        <LocationOnIcon /> <p>110 Harare St. Corner R. Mugabe </p>
                     </p>
                 </div>
                 <div className="w-full p-2">
