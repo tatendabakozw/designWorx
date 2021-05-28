@@ -18,6 +18,8 @@ function Services() {
         })
     }, [])
 
+    console.log(services)
+
     return (
         <GeneralLayout>
             <Navbar transparent />
@@ -30,9 +32,10 @@ function Services() {
                             services?.map(service => (
                                 <>
                                     <ServiceItem
+                                        key={service.id}
                                         className="bg-none col-span-1 hover:bg-gray-800 h-60"
-                                        image={service.services.brandpic}
-                                        category={service.services.brandtype}
+                                        image={service.services.image}
+                                        category={service.services.service}
                                         categoryDesc={service.services.branddescription}
                                         navig="/cooperate"
                                     />
