@@ -38,30 +38,30 @@ export default function Footer() {
                 Find us on any of these platforms, we respond 1-2 business days.
               </h5> */}
               <div className="mt-6">
-                <button
+                {/* <button
                   className="bg-white text-blue-400 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
                   type="button"
                 >
                   <i className="flex fab fa-twitter">
                     <img src={twitter} alt="twitter"/>
                   </i>
-                </button>
-                <button
+                </button> */}
+                {/* <button
                   className="bg-white text-blue-600 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
                   type="button"
                 >
                   <i className="flex fab fa-facebook-square">
                     <img src={instagram} alt="instagram"/>
                   </i>
-                </button>
-                <button
+                </button> */}
+                <a href="www/facebook.com/Designworxzim"
                   className="bg-white text-pink-400 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
                   type="button"
                 >
-                  <i className="flex fab fa-dribbble">
+                  <i className="flex">
                     <img src={facebook} alt="facebook"/>
                   </i>
-                </button>
+                </a>
               </div>
             </div>
             <div className="w-full lg:w-6/12 px-4">
