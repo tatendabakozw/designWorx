@@ -39,7 +39,7 @@ function Home() {
             <Navbar/>
             <GeneralLayout>
                 <div className="div">
-                <Carousel autoPlay emulateTouch infiniteLoop interval={3000} showThumbs={false} showIndicators={false} showStatus={false}>
+                <Carousel autoPlay emulateTouch infiniteLoop interval={3000} showThumbs={false} showStatus={false}>
                 <div>
                     <img src={banner} />
                 </div>
