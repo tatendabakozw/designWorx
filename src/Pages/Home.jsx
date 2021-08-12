@@ -1,6 +1,5 @@
 import React, { useEffect, useRef } from 'react'
 import Navbar from '../Components/Navbar'
-import banner from '../assets/img/carsBack.png'
 import carBa from '../assets/img/carBaB.png'
 import { gsap, Power3, Bounce, TimelineLite } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
@@ -10,59 +9,18 @@ import GeneralLayout from '../Layouts/GeneralLayout'
 import whiteLogo from '../assets/img/dwLogo.png'
 import { db } from '../firebase'
 import { useState } from 'react'
+import banner from '../assets/img/custombranding/banner2.png'
+import bznner2 from '../assets/img/custombranding/banner1.png'
+import banner3 from '../assets/img/custombranding/banner3.png'
+import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+import { Carousel } from 'react-responsive-carousel';
 
 gsap.registerPlugin(ScrollTrigger)
 
 function Home() {
     let carImage = useRef(null)
     let t1 = new TimelineLite({ delay: 0.5 })
-    useEffect(() => {
-        t1.from('.companyName', { y: 15, opacity: 0, ease: Bounce.easeOut, delay: 0.6 }, 'start')
-        t1.from('.slogan', { y: 15, opacity: 0, ease: Power3.easeOut, delay: 0.7 }, 'start')
-        t1.from('.demoandbrabdbtn', { y: 15, opacity: 0, ease: Power3.easeOut, delay: 0.8 }, 'start')
-        // t1.from('.row2', { y: 15, opacity: 1, ease: Power3.easeOut, delay: 0.8 }, 'start')
-        // TweenMax.to(carImage, 5,{opacity: 1, x: -40, ease:Power3.easeOut})
-        gsap.from(carImage, {
-            duration: 2, x: '-50', opacity: 1, ease: 'ease-out', scrollTrigger: {
-                trigger: '.main',
-                // start: 'top 90%',
-                // end: 'bottom 60%',
-                toggleActions: 'restart complete reverse reset'
-            }
-        })
-        // gsap.from('.companyName', {
-        //     duration: 2, y: '50', opacity: 1, ease: 'ease-out', scrollTrigger: {
-        //         trigger: '.main',
-        //         // start: 'top 90%',
-        //         // end: 'bottom 60%',
-        //         toggleActions: 'restart complete reverse reset'
-        //     }
-        // })
-        gsap.from('.row2', {
-            duration: 1, y: '80', opacity: 0, ease: 'ease-out', scrollTrigger: {
-                trigger: '.here',
-                // start: 'top 90%',
-                // end: 'bottom 60%',
-                toggleActions: 'restart complete reverse reset'
-            }
-        })
-        gsap.from('.row2-t', {
-            duration: 2, y: '100', opacity: 0, ease: 'ease-out', scrollTrigger: {
-                trigger: '.here',
-                // start: 'top 90%',
-                // end: 'bottom 60%',
-                toggleActions: 'restart complete reverse reset'
-            }
-        })
-        gsap.from('.row2-p', {
-            duration: 2, y: '100', opacity: 0, ease: 'ease-out', scrollTrigger: {
-                trigger: '.here',
-                // start: 'top 90%',
-                // end: 'bottom 60%',
-                toggleActions: 'restart complete reverse reset'
-            }
-        })
-    }, [])
+    
     const [homestuff, setHomestuff] = useState()
 
     //get services from firebase
@@ -78,56 +36,25 @@ function Home() {
 
     return (
         <>
-            <Navbar transparent />
+            <Navbar/>
             <GeneralLayout>
                 <div className="div">
-                    <div className="relative flex content-center items-center justify-center min-h-screen"
-                        style={{
-                            backgroundImage: `url(${banner})`
-                        }}>
-                        <div className="absolute top-0 w-full h-full bg-center bg-cover">
-                            <span id="blackOverlay" className="w-full h-full absolute opacity-25 bg-black"></span>
-                        </div>
-                        <div className="main container md:px-16 px-8 relative items-center mx-auto grid md:grid-cols-3 grid-cols-1">
-                            <div className="text flex flex-col items-center col-span-1 md:mb-0 mb-2">
-                                {/* <p className="companyName md:text-8xl text-5xl text-red-600 mb-2 font-extrabold">DesignWorx</p> */}
-                                <img src={whiteLogo} alt="logo" className="companyName w-96" />
-                                <p className="text-black ml-2 mt-8 border-2 md:text-xl text-sm border-red-600 cursor-pointer font-extrabold p-2 rounded-sm uppercase">PROFESSIONAL MOTOR GRAPhics</p>
+                <Carousel autoPlay emulateTouch infiniteLoop interval={3000} showThumbs={false} showIndicators={false} showStatus={false}>
+                <div>
+                    <img src={banner} />
+                </div>
+                <div>
+                    <img src={bznner2} />
+                </div>
+                <div>
+                    <img src={banner3} />
+                </div>
+            </Carousel>
 
-                            </div>
-                            <div className="col-span-2 bottom-0">
-                                <img
-                                    ref={el => { carImage = el }}
-                                    src={carBa} alt="carbanner image" className="flex-self"
-                                    alt="iima"
-                                />
-                            </div>
-                        </div>
-                        <div
-                            className="top-auto bottom-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden"
-                            style={{ height: "70px", transform: "translateZ(0)" }}
-                        >
-                            <svg
-                                className="absolute bottom-0 overflow-hidden"
-                                xmlns="http://www.w3.org/2000/svg"
-                                preserveAspectRatio="none"
-                                version="1.1"
-                                viewBox="0 0 2560 100"
-                                x="0"
-                                y="0"
-                            >
-                                <polygon
-                                    className="text-gray-900 fill-current"
-                                    points="2560 0 2560 100 0 100"
-                                ></polygon>
-                            </svg>
-                        </div>
-                    </div>
-
-                    <div className="pb-32 px-8 bg-gray-900 min-h-screen pt-16">
-                        <div className="row2 container mx-auto px-4">
+                    <div className="md:pb-32 pb-8 px-8 bg-gray-900 min-h-screen md:pt-24 pt-8">
+                        <div className="row2 container mx-auto px-2">
                             {/* <p className="text-7xl text-center text-red-600 font-extrabold">01</p> */}
-                            <p className="row2-t text-white text-center text-3xl mt-2 mb-24">Why us?</p>
+                            <p className="row2-t text-white text-center text-3xl mt-2 md:mb-24 mb-8">Why us?</p>
                             {/* <p>custom branding</p> */}
                             {
                                 homestuff?.map(item => (

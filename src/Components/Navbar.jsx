@@ -11,8 +11,8 @@ export default function Navbar(props) {
         className={
           (props.transparent
             ? "top-0 absolute z-50 w-full"
-            : "relative shadow bg-white") +
-          " flex flex-wrap items-center justify-between px-2 py-3 navbar-expand-lg"
+            : "relative shadow bg-black") +
+          " flex flex-wrap items-center justify-between md:px-24 px-4 py-3 navbar-expand-lg"
         }
       >
         <div className="container px-4 mx-auto flex flex-wrap items-center justify-between">
@@ -25,19 +25,19 @@ export default function Navbar(props) {
               href="/"
             >
               <img src={logo} alt="logo" className="mr-2 w-14"/>
-              <p>DesignWorx</p>
+              {/* <p>DesignWorx</p> */}
             </a>
             <button
               className="cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none"
               type="button"
               onClick={() => setNavbarOpen(!navbarOpen)}
             >
-              <MenuIcon className={(props.transparent ? "text-white" : "text-gray-800") }/>              
+              <MenuIcon className={(props.transparent ? "text-white" : "text-white") }/>              
             </button>
           </div>
           <div
             className={
-              "lg:flex flex-grow items-center bg-white lg:bg-transparent lg:shadow-none" +
+              "lg:flex flex-grow items-center bg-black lg:bg-transparent lg:shadow-none" +
               (navbarOpen ? " block rounded shadow-lg" : " hidden")
             }
             id="example-navbar-warning"
@@ -49,7 +49,7 @@ export default function Navbar(props) {
                   className={
                     (props.transparent
                       ? "lg:text-black lg:hover:text-gray-900 text-black"
-                      : "text-gray-800 hover:text-gray-600") +
+                      : "text-white hover:text-gray-50") +
                     " px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
                   }>
                   About us
@@ -61,7 +61,7 @@ export default function Navbar(props) {
                   className={
                     (props.transparent
                       ? "lg:text-black lg:hover:text-gray-900 text-black"
-                      : "text-gray-800 hover:text-gray-600") +
+                      : "text-white hover:text-gray-50") +
                     " px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
                   }>
                   Our Jobs
