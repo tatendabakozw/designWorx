@@ -34,9 +34,9 @@ export default function Footer() {
               <h4 className="text-3xl text-red-600 font-semibold">
                 <img src={logo} alt="logo" className="w-24"/>
               </h4>
-              <h5 className="text-lg mt-0 mb-2 text-gray-300">
+              {/* <h5 className="text-lg mt-0 mb-2 text-gray-300">
                 Find us on any of these platforms, we respond 1-2 business days.
-              </h5>
+              </h5> */}
               <div className="mt-6">
                 <button
                   className="bg-white text-blue-400 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
