@@ -99,7 +99,7 @@ export default function Footer() {
                   href="https://www.devbako.co.zw"
                   className="text-gray-600 hover:text-gray-900"
                 >
-                  By Tatenda Bako
+                  By LadWorx
                 </a>.
               </div>
             </div>
